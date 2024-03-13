@@ -10,7 +10,7 @@ scores.push(-9)
 console.log(scores);
 console.log(scores.length);
 
-for (const score of scores) {n
+for (const score of scores) {
     console.log(`Your score is ${score}`);
 }
 
