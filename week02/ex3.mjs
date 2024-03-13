@@ -56,3 +56,15 @@ q1.add(new Answer('Undecided', 'luigi', 0, dayjs()))
 // console.log(q1.listByDate())
 
 // console.log(q1.listByScore())
+
+console.log("Find luigi:");
+console.log(q1.find('luigi'));
+
+console.log("after 2024-03-12:");
+console.log(q1.afterDate(dayjs('2024-03-12')));
+
+console.log("list by Date");
+console.log(q1.listByDate());
+
+console.log("list by score");
+console.log(q1.listByScore());
