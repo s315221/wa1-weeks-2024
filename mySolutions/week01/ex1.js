@@ -39,15 +39,34 @@ else {
 }
 console.log(`Positive scores with 2 low ranking removed: ${scores_modified}`);
 // Add NN+2 new scores, at the end of the array, with a value equal to the (rounded) average of the existing scores.
-let avg_rounded = 0;
+let modified_scores_avg_rounded = 0;
 if (scores_modified.length) {
     for (let score of scores_modified) {
-        avg_rounded += score;
+        modified_scores_avg_rounded += score;
     }
-    avg_rounded = Math.round(avg_rounded / scores_modified.length);
+    modified_scores_avg_rounded = Math.round(modified_scores_avg_rounded / scores_modified.length);
 }
 for (let i = 1; i <= NN + 2; ++i) {
-    scores_modified.push(avg_rounded);
+    scores_modified.push(modified_scores_avg_rounded);
 }
-console.log(`With #(${NN} + 2) ${avg_rounded} added at the end of array: ${scores_modified} `);
-console.log(`original array: ${scores}`);
+console.log(`modified scores rounded average: ${modified_scores_avg_rounded}`);
+console.log(`With (${NN} + 2) = ${NN + 2} number of rounded average ${modified_scores_avg_rounded} added at the end of modified scores: ${scores_modified} `);
+
+// Print both arrays, comparing the scores before and after the "improvement," and showing the averages in both cases.
+
+const scores_avg_rounded =
+    Math.round(
+        scores.reduce(
+            (accumulator, currentValue) => accumulator + currentValue
+        )
+        / scores.length
+    );
+modified_scores_avg_rounded =
+    Math.round(
+        scores_modified.reduce(
+            (accumulator, currentValue) => accumulator + currentValue
+        )
+        / scores.length
+    );
+console.log(`original scores: ${scores} with avg: ${scores_avg_rounded}`);
+console.log(`modified scores: ${scores_modified} with avg: ${modified_scores_avg_rounded}`)
