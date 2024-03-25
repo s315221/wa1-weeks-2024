@@ -1,0 +1,13 @@
+{
+  "scripts": {
+    "start": "node ex04.mjs",
+    "monitor" : "npx nodemon -e mjs --delay 1 --exec \"cp ../../week03/questions.sqlite ./questions.sqlite && npm start\""
+  },
+  "dependencies": {
+    "dayjs": "^1.11.10",
+    "sqlite3": "^5.1.7"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}
